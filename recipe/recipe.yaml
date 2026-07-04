@@ -2,16 +2,15 @@
 schema_version: 1
 
 context:
-  name: dbt-protos
-  version: "1.0.474"
+  version: "1.0.514"
 
 package:
-  name: ${{ name|lower }}
+  name: dbt-protos
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/dbt_protos-${{ version }}.tar.gz
-  sha256: 03e036eb93537d3055cfb0dd8c7d2c61991ee1c2c2f30d3c143d6bb91faf796b
+  url: https://pypi.org/packages/source/d/dbt-protos/dbt_protos-${{ version }}.tar.gz
+  sha256: 4429a8b0675140467206aaaf9d9468e619a9697f443e4b3921f297d01e4a77a0
 
 build:
   number: 0
@@ -24,7 +23,7 @@ requirements:
     - pip
     - setuptools
   run:
-    - python >=${{ python_min }},<4.0
+    - python >=${{ python_min }}
     - protobuf >=3.17.1
 
 tests:
@@ -34,16 +33,17 @@ tests:
       pip_check: true
       python_version:
         - ${{ python_min }}.*
+        - "*"
 
 about:
-  summary: Public proto bindings for dbt
   homepage: https://github.com/dbt-labs/proto-python-public
-  description: |
-    Public proto bindings for dbt.
   repository: https://github.com/dbt-labs/proto-python-public
   documentation: https://github.com/dbt-labs/proto-python-public/blob/main/README.md
   license: Apache-2.0
   license_file: LICENSE
+  summary: Public proto bindings for dbt
+  description: |
+    Public proto bindings for dbt.
 
 extra:
   recipe-maintainers:
